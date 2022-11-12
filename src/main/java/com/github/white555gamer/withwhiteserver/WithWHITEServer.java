@@ -8,20 +8,28 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class WithWHITEServer extends JavaPlugin {
 
+    /**インスタンスの格納所。setter/getterを通して操作できる。*/
     private static WithWHITEServer instance;
 
+    /**SHAREコマンドのラベル。*/
     private static final String SHARE_COMMAND_LABEL = "share";
+    /**SPAWNコマンドのラベル。*/
     private static final String SPAWN_COMMAND_LABEL = "spawn";
+    /**PLAYERNAMEコマンドのラベル。*/
     private static final String PLAYERNAME_COMMAND_LABEL = "playername";
 
+    /**onEnableメソッド。インスタンスの代入、イベントの登録、コマンドの設定を順に行う。*/
     @Override
     public void onEnable() {
         getLogger().info("有効化開始...");
 
+        //instanceを代入
         instance = this;
 
+        //イベントを登録
         getServer().getPluginManager().registerEvents(new EventRedistributionHandler(),this);
 
+        //コマンドを設定
         getCommand(SHARE_COMMAND_LABEL).setExecutor(new ShareCommand());
         getCommand(SPAWN_COMMAND_LABEL).setExecutor(new SpawnCommand());
         getCommand(PLAYERNAME_COMMAND_LABEL).setExecutor(new PlayerNameCommand());
@@ -29,18 +37,23 @@ public final class WithWHITEServer extends JavaPlugin {
         getLogger().info("有効化完了...");
     }
 
+    /**onLoadメソッド。*/
     @Override
     public void onLoad() {
         getLogger().info("ロード開始...");
         getLogger().info("ロード完了...");
     }
 
+    /**onDisableメソッド。*/
     @Override
     public void onDisable() {
         getLogger().info("無効化開始...");
         getLogger().info("無効化完了...");
     }
 
+    /**getInstanceメソッド。onEnableで代入したInstanceを外部から取得出来るようにする。
+     * config.yml操作などで用いる予定だが、/configurationに取り回しをよくするための専用クラスを配置し、そこにconfig.ymlの大体の操作を置くので主な使用用途はconfigurationを想定。
+     * 場合によってはそれ以外も考える。*/
     public static WithWHITEServer getInstance() {
         return instance;
     }
