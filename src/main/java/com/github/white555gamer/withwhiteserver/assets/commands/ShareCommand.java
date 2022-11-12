@@ -13,8 +13,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.github.white555gamer.withwhiteserver.assets.messages.ListofMessages.INVALID_COMMAND_MESSAGE;
-import static com.github.white555gamer.withwhiteserver.assets.messages.ListofMessages.SERVER_NON_EXECUTABLE_MESSAGE;
+import static com.github.white555gamer.withwhiteserver.assets.constants.ConstantProperty.INVALID_COMMAND_MESSAGE;
+import static com.github.white555gamer.withwhiteserver.assets.constants.ConstantProperty.SERVER_NON_EXECUTABLE_MESSAGE;
 
 public class ShareCommand implements CommandExecutor, TabExecutor {
 

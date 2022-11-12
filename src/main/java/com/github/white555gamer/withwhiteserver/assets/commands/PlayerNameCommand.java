@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.github.white555gamer.withwhiteserver.assets.messages.ListofMessages.*;
+import static com.github.white555gamer.withwhiteserver.assets.constants.ConstantProperty.*;
 import static org.bukkit.Bukkit.getServer;
 
 public class PlayerNameCommand implements CommandExecutor, TabCompleter {
