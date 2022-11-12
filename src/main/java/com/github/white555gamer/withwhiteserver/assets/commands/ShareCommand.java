@@ -29,7 +29,7 @@ public class ShareCommand implements CommandExecutor, TabExecutor {
     }
 
     /**コマンドの候補。*/
-    private static final List<String> COMMAND_SUGGESTIONS = ImmutableList.of("NowLocation", "MainHandItem", "OffHandItem");
+    private static final List<String> COMMAND_SUGGESTIONS = ImmutableList.of("nowlocation", "mainhanditem", "offhanditem");
 
     /**onCommandメソッド。プレイヤーしか実行できない。プレイヤーかどうかを取得して、引数に応じたものを返す。
      * @param sender コマンド実行者
@@ -85,7 +85,7 @@ public class ShareCommand implements CommandExecutor, TabExecutor {
                 return COMMAND_SUGGESTIONS;
             } else {
                 //StreamAPIで適するものだけを返却。
-                return COMMAND_SUGGESTIONS.stream().filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
+                return COMMAND_SUGGESTIONS.stream().filter(s -> s.startsWith(args[0].toLowerCase())).collect(Collectors.toList());
             }
 
         } else {

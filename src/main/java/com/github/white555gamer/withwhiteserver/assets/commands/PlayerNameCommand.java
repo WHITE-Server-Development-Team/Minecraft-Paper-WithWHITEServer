@@ -77,7 +77,7 @@ public class PlayerNameCommand implements CommandExecutor, TabCompleter {
                 return getServer().getOnlinePlayers().stream().map(Player::getName).collect(Collectors.toList());
             } else {
                 //オンラインプレイヤーをStreamAPIで名前に変換して適する人だけを返却。
-                return getServer().getOnlinePlayers().stream().map(Player::getName).filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
+                return getServer().getOnlinePlayers().stream().map(Player::getName).map(s -> s.toLowerCase()).filter(s -> s.startsWith(args[0].toLowerCase())).collect(Collectors.toList());
             }
 
         } else {

@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 import static com.github.white555gamer.withwhiteserver.assets.constants.ConstantProperty.INVALID_COMMAND_MESSAGE;
@@ -25,7 +26,7 @@ public class SpawnCommand implements CommandExecutor, TabCompleter {
     private static final String ERROR_NON_EXIST_BED_SPAWN_MESSAGE = "ベッドが存在しないか、スポーン出来ない状態なため戻れません。";
 
     /**コマンドの候補。*/
-    private static final List<String> COMMAND_SUGGESTIONS = ImmutableList.of("Initial", "Bed");
+    private static final List<String> COMMAND_SUGGESTIONS = ImmutableList.of("initial", "bed");
 
     /**onCommandメソッド。プレイヤーしか実行できない。プレイヤーかどうかを取得して、引数に応じた場所にteleportする。
      * @param sender コマンド実行者
@@ -89,7 +90,7 @@ public class SpawnCommand implements CommandExecutor, TabCompleter {
                 return COMMAND_SUGGESTIONS;
             } else {
                 //StreamAPIで適するものだけを返却。
-                return COMMAND_SUGGESTIONS.stream().filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
+                return COMMAND_SUGGESTIONS.stream().filter(s -> s.startsWith(args[0].toLowerCase())).collect(Collectors.toList());
             }
 
         } else {

@@ -27,7 +27,7 @@ public final class WithWHITEServer extends JavaPlugin {
         instance = this;
 
         //イベントを登録
-        getServer().getPluginManager().registerEvents(new EventRedistributionHandler(),this);
+        getServer().getPluginManager().registerEvents(new EventRedistributionHandler(), this);
 
         //コマンドを設定
         getCommand(SHARE_COMMAND_LABEL).setExecutor(new ShareCommand());
