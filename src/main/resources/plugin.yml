@@ -1,0 +1,26 @@
+name: WithWHITEServer
+version: '${project.version}'
+main: com.github.white555gamer.withwhiteserver.WithWHITEServer
+api-version: 1.17
+authors: [ WHITE, WHERE_WHITE_, WHERE_WHITE_KUN, WHITE555Gamer ]
+description: A Plugin For WHITE555Gamer's Server.
+
+commands:
+  share:
+    usage: |
+      /share NowLocation
+      /share MainHandItem
+      /share OffHandItem
+    description: |
+      このコマンドを使うことで、様々なものを共有できます。
+  spawn:
+    usage: |
+      /spawn Initial
+      /spawn Bed
+    description: |
+      このコマンドを使うことで、初期スポーンやベッドスポーンに戻れます。
+  playername:
+    usage: |
+      /playername AAA BBB
+    description:
+      このコマンドを使うことで、表示上の名前を変更できます。
