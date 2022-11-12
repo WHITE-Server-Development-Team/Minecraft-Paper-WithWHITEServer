@@ -3,7 +3,7 @@ package com.github.white555gamer.withwhiteserver;
 import com.github.white555gamer.withwhiteserver.assets.commands.PlayerNameCommand;
 import com.github.white555gamer.withwhiteserver.assets.commands.ShareCommand;
 import com.github.white555gamer.withwhiteserver.assets.commands.SpawnCommand;
-import com.github.white555gamer.withwhiteserver.assets.events.EventRedistributionHandlers;
+import com.github.white555gamer.withwhiteserver.assets.events.EventRedistributionHandler;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class WithWHITEServer extends JavaPlugin {
@@ -20,7 +20,7 @@ public final class WithWHITEServer extends JavaPlugin {
 
         instance = this;
 
-        getServer().getPluginManager().registerEvents(new EventRedistributionHandlers(),this);
+        getServer().getPluginManager().registerEvents(new EventRedistributionHandler(),this);
 
         getCommand(SHARE_COMMAND_LABEL).setExecutor(new ShareCommand());
         getCommand(SPAWN_COMMAND_LABEL).setExecutor(new SpawnCommand());
