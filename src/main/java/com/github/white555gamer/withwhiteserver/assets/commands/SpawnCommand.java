@@ -1,6 +1,5 @@
 package com.github.white555gamer.withwhiteserver.assets.commands;
 
-import com.github.white555gamer.withwhiteserver.WithWHITEServer;
 import com.google.common.collect.ImmutableList;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -18,11 +17,11 @@ import static com.github.white555gamer.withwhiteserver.assets.messages.ListofMes
 
 public class SpawnCommand implements CommandExecutor, TabCompleter {
 
-    private static final String teleportInitialSpawnMessage = "初期スポーンに戻りました。";
-    private static final String teleportBedSpawnMessage = "ベッドスポーンに戻りました。";
-    private static final String errorNonExistBedSpawnMessage = "ベッドが存在しないか、スポーン出来ない状態なため戻れません。";
+    private static final String TELEPORT_INITIAL_SPAWN_MESSAGE = "初期スポーンに戻りました。";
+    private static final String TELEPORT_BED_SPAWN_MESSAGE = "ベッドスポーンに戻りました。";
+    private static final String ERROR_NON_EXIST_BED_SPAWN_MESSAGE = "ベッドが存在しないか、スポーン出来ない状態なため戻れません。";
 
-    private static final List<String> commandSuggestions = ImmutableList.of("Initial", "Bed");
+    private static final List<String> COMMAND_SUGGESTIONS = ImmutableList.of("Initial", "Bed");
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -33,18 +32,18 @@ public class SpawnCommand implements CommandExecutor, TabCompleter {
             if (args[0].equalsIgnoreCase("Initial")) {
 
                 player.teleport(player.getWorld().getSpawnLocation());
-                player.sendMessage(teleportInitialSpawnMessage);
+                player.sendMessage(TELEPORT_INITIAL_SPAWN_MESSAGE);
 
             } else if (args[0].equalsIgnoreCase("Bed")) {
 
                 if (player.getBedSpawnLocation() == null) {
 
-                    player.sendMessage(errorNonExistBedSpawnMessage);
+                    player.sendMessage(ERROR_NON_EXIST_BED_SPAWN_MESSAGE);
 
                 } else {
 
                     player.teleport(player.getBedSpawnLocation());
-                    player.sendMessage(teleportBedSpawnMessage);
+                    player.sendMessage(TELEPORT_BED_SPAWN_MESSAGE);
 
                 }
 
@@ -67,9 +66,9 @@ public class SpawnCommand implements CommandExecutor, TabCompleter {
         if (args.length == 1) {
 
             if (args[0].length() == 0) {
-                return commandSuggestions;
+                return COMMAND_SUGGESTIONS;
             } else {
-                return commandSuggestions.stream().filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
+                return COMMAND_SUGGESTIONS.stream().filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
             }
 
         } else {

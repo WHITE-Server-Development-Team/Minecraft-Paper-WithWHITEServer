@@ -1,37 +1,30 @@
 package com.github.white555gamer.withwhiteserver;
 
-import com.destroystokyo.paper.event.player.PlayerJumpEvent;
 import com.github.white555gamer.withwhiteserver.assets.commands.PlayerNameCommand;
 import com.github.white555gamer.withwhiteserver.assets.commands.ShareCommand;
 import com.github.white555gamer.withwhiteserver.assets.commands.SpawnCommand;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerToggleSneakEvent;
-import org.bukkit.plugin.Plugin;
+import com.github.white555gamer.withwhiteserver.assets.events.EventRedistributionHandlers;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
 
-public final class WithWHITEServer extends JavaPlugin implements Listener {
+public final class WithWHITEServer extends JavaPlugin {
 
-    public Plugin getThisPlugin() {
-        return this;
-    }
+    private static WithWHITEServer instance;
+
+    private static final String SHARE_COMMAND_LABEL = "share";
+    private static final String SPAWN_COMMAND_LABEL = "spawn";
+    private static final String PLAYERNAME_COMMAND_LABEL = "playername";
 
     @Override
     public void onEnable() {
         getLogger().info("有効化開始...");
 
-        getServer().getPluginManager().registerEvents(this,this);
+        instance = this;
 
-        getCommand("share").setExecutor(new ShareCommand());
-        getCommand("spawn").setExecutor(new SpawnCommand());
-        getCommand("playername").setExecutor(new PlayerNameCommand());
+        getServer().getPluginManager().registerEvents(new EventRedistributionHandlers(),this);
 
-
+        getCommand(SHARE_COMMAND_LABEL).setExecutor(new ShareCommand());
+        getCommand(SPAWN_COMMAND_LABEL).setExecutor(new SpawnCommand());
+        getCommand(PLAYERNAME_COMMAND_LABEL).setExecutor(new PlayerNameCommand());
 
         getLogger().info("有効化完了...");
     }
@@ -48,46 +41,8 @@ public final class WithWHITEServer extends JavaPlugin implements Listener {
         getLogger().info("無効化完了...");
     }
 
-    @EventHandler
-    public void onJumpEvent(PlayerJumpEvent event) {
-
-        Player player = event.getPlayer();
-        Location location = event.getPlayer().getLocation();
-
-        if (player.getWorld().getName().equalsIgnoreCase("hub_world")) {
-            if ((-1 < location.getX() && location.getX() < 1) && (-1 < location.getZ() && location.getZ() < 1)) {
-
-                if (location.getY() <= 50) {
-
-                    player.teleport(location.add(0, 6, 0));
-
-                }
-
-            }
-        }
-
-    }
-
-    @EventHandler
-    public void onShiftEvent(PlayerToggleSneakEvent event) {
-
-        Player player = event.getPlayer();
-        Location location = event.getPlayer().getLocation();
-
-        if (player.isSneaking()) {
-            if (player.getWorld().getName().equalsIgnoreCase("hub_world")) {
-                if ((-1 < location.getX() && location.getX() < 1) && (-1 < location.getZ() && location.getZ() < 1)) {
-
-                    if (location.getY() >= 7) {
-
-                        player.teleport(location.add(0, -6, 0));
-
-                    }
-
-                }
-            }
-        }
-
+    public static WithWHITEServer getInstance() {
+        return instance;
     }
 
 }

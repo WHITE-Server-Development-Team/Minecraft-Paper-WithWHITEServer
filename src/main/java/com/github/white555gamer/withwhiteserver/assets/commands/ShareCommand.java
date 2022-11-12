@@ -18,14 +18,14 @@ import static com.github.white555gamer.withwhiteserver.assets.messages.ListofMes
 
 public class ShareCommand implements CommandExecutor, TabExecutor {
 
-    private static String shareLocationMessage(@NotNull Location loc){
+    private static String shareLocationMessage(@NotNull Location loc) {
         return "World: " + loc.getWorld().getName() + "\n" +
-                "X(Block X): " + Math.floor(loc.getX()*10)/10 + "(" + loc.getBlockX() + ")\n" +
-                "Y(Block Y): " + Math.floor(loc.getY()*10)/10 + "(" + loc.getBlockY() + ")\n" +
-                "Z(Block Z): " + Math.floor(loc.getZ()*10)/10 + "(" + loc.getBlockZ() + ")";
+                "X(Block X): " + Math.floor(loc.getX() * 10) / 10 + "(" + loc.getBlockX() + ")\n" +
+                "Y(Block Y): " + Math.floor(loc.getY() * 10) / 10 + "(" + loc.getBlockY() + ")\n" +
+                "Z(Block Z): " + Math.floor(loc.getZ() * 10) / 10 + "(" + loc.getBlockZ() + ")";
     }
 
-    private static final List<String> commandSuggestions = ImmutableList.of("NowLocation", "MainHandItem", "OffHandItem");
+    private static final List<String> COMMAND_SUGGESTIONS = ImmutableList.of("NowLocation", "MainHandItem", "OffHandItem");
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -64,9 +64,9 @@ public class ShareCommand implements CommandExecutor, TabExecutor {
         if (args.length == 1) {
 
             if (args[0].length() == 0) {
-                return commandSuggestions;
+                return COMMAND_SUGGESTIONS;
             } else {
-                return commandSuggestions.stream().filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
+                return COMMAND_SUGGESTIONS.stream().filter(s -> s.startsWith(args[0])).collect(Collectors.toList());
             }
 
         } else {

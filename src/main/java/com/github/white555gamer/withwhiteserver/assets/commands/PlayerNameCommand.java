@@ -15,7 +15,7 @@ import static org.bukkit.Bukkit.getServer;
 
 public class PlayerNameCommand implements CommandExecutor, TabCompleter {
 
-    private static final String setPlayerNameMessage = "名前を変更しました。";
+    private static final String SET_PLAYER_NAME_MESSAGE = "名前を変更しました。";
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -34,7 +34,7 @@ public class PlayerNameCommand implements CommandExecutor, TabCompleter {
                 player.setCustomName(args[1]);
                 player.setDisplayName(args[1]);
                 player.setPlayerListName(args[1]);
-                player.sendMessage(setPlayerNameMessage);
+                player.sendMessage(SET_PLAYER_NAME_MESSAGE);
 
             } else {
 
