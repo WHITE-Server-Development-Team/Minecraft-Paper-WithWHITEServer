@@ -4,9 +4,9 @@ import com.destroystokyo.paper.event.player.PlayerJumpEvent;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
-public class JumpEvent {
+import static com.github.white555gamer.withwhiteserver.assets.constants.ConstantProperty.HUB_WORLD_NAME;
 
-    private static final String HUB_WORLD_NAME = "hub_world";
+public class JumpEvent {
 
     public void execute(PlayerJumpEvent event) {
 

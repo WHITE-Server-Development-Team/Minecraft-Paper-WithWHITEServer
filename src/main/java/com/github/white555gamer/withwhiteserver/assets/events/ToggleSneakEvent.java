@@ -4,9 +4,9 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 
-public class ToggleSneakEvent {
+import static com.github.white555gamer.withwhiteserver.assets.constants.ConstantProperty.HUB_WORLD_NAME;
 
-    private static final String HUB_WORLD_NAME = "hub_world";
+public class ToggleSneakEvent {
 
     public void execute(PlayerToggleSneakEvent event) {
 
