@@ -8,15 +8,15 @@ description: A Plugin For WHITE555Gamer's Server.
 commands:
   share:
     usage: |
-      /share NowLocation
-      /share MainHandItem
-      /share OffHandItem
+      /share nowlocation
+      /share Mainhanditem
+      /share offhanditem
     description: |
       このコマンドを使うことで、様々なものを共有できます。
   spawn:
     usage: |
-      /spawn Initial
-      /spawn Bed
+      /spawn initial
+      /spawn bed
     description: |
       このコマンドを使うことで、初期スポーンやベッドスポーンに戻れます。
   playername:

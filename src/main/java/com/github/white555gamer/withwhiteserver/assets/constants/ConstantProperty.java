@@ -1,10 +1,14 @@
 package com.github.white555gamer.withwhiteserver.assets.constants;
 
-/**ここには複数回複数のファイルで使用する固定のメッセージや定数(変更することがない)を格納している。*/
+/**ここには複数回、複数のファイルで使用する固定のメッセージや定数(変更することがない)を格納している。*/
 public class ConstantProperty {
 
-    /**ハブワールドのワールド名。*/
+    /**ハブとして使っているワールドのワールド名。*/
     public static final String HUB_WORLD_NAME = "hub_world";
+    /**ワールドエディット用に用意されたワールドのワールド名。*/
+    public static final String WORLDEDIT_WORLD_NAME = "WorldEdit_World";
+    /**プラグイン用に用意されたワールドのワールド名。*/
+    public static final String PLUGIN_WORLD_NAME = "Plugin_World";
 
     /**存在しないコマンドが使用されたときのメッセージ内容。*/
     public static final String INVALID_COMMAND_MESSAGE = "存在しないコマンドです。";
